@@ -3,15 +3,13 @@
 clear
 
 title="✅ GERADOR DE HASH - SHA256 - macOS"
-line_length=52  # comprimento total da linha (ajuste se quiser mais largo)
+line_length=52
 title_length=${#title}
 side_length=$(( (line_length - title_length) / 2 ))
 padding=$(printf '%*s' "$side_length" '' | tr ' ' '=')
 
-# Centraliza e imprime
 echo "${padding}${title}${padding}"
 
-# Caso o título seja ímpar e o total par, uma borda pode faltar 1 =
 [ $(( (line_length - title_length) % 2 )) -ne 0 ] && echo "="
 
 echo ""
@@ -32,15 +30,13 @@ check_file="controle.txt"
 clear
 
 title="✅ GERADOR DE HASH - SHA256 - macOS"
-line_length=52  # comprimento total da linha (ajuste se quiser mais largo)
+line_length=52
 title_length=${#title}
 side_length=$(( (line_length - title_length) / 2 ))
 padding=$(printf '%*s' "$side_length" '' | tr ' ' '=')
 
-# Centraliza e imprime
 echo "${padding}${title}${padding}"
 
-# Caso o título seja ímpar e o total par, uma borda pode faltar 1 =
 [ $(( (line_length - title_length) % 2 )) -ne 0 ] && echo "="
 
 echo ""
@@ -49,7 +45,6 @@ echo ""
 echo "💾 Salvando como: $hash_file"
 echo ""
 
-# Geração do hash (ignorando arquivos específicos)
 find . -type f \
   ! -name "$hash_file" \
   ! -name "$check_file" \
@@ -61,7 +56,6 @@ find . -type f \
     echo "✅  Hash gerado para: $file"
 done
 
-# Registro no controle.txt
 registro_data=$(date +"%d/%m/%Y - %H:%M")
 echo "$registro_data - hash criado" >> "$check_file"
 
